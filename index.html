@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>조하은의 웹페이지</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .night-mode {
+      background-color: rgb(161, 121, 121);
+      color: white;
+    }
+  </style>
+  <script>
+    function updateTimeAndDate() {
+      var dateElement = document.getElementById('date');
+      var timeElement = document.getElementById('time');
+      var currentDate = new Date();
+      var date = currentDate.toLocaleDateString();
+      var time = currentDate.toLocaleTimeString();
+
+      dateElement.textContent = date;
+      timeElement.textContent = time;
+    }
+
+    function nightDayHandler(button) {
+      var container = document.getElementById('container');
+      var header = document.getElementById('header');
+      var sidebar = document.getElementById('sidebar');
+      var contents = document.getElementById('contents');
+      var snsLinks = document.getElementById('snsLinks');
+      var footer = document.getElementById('footer');
+      var textElements = document.querySelectorAll('#logo h1, #contents h2, #snsLinks h2, #last h1, #introduction li, #hobby li, #time-Date, #date, #time');
+
+      if (button.value === "night") {
+        button.value = "day";
+        button.style.backgroundColor = "white";
+        button.style.color = "black";
+        container.style.backgroundColor = "rgb(250, 242, 242)";
+        header.style.backgroundColor = "rgb(250, 242, 242)";
+        sidebar.style.backgroundColor = "white";
+        contents.style.backgroundColor = "rgb(249, 248, 248)";
+        snsLinks.style.backgroundColor = "rgb(249, 248, 248)";
+        footer.style.backgroundColor = "rgb(246, 242, 238)";
+
+        // 텍스트 요소의 색상 변경
+        textElements.forEach(function(element) {
+          element.style.color = "rgb(93, 93, 93)";
+        });
+      } else {
+        button.value = "night";
+        button.style.backgroundColor = "rgb(161, 121, 121)";
+        button.style.color = "white";
+        container.style.backgroundColor = "black";
+        header.style.backgroundColor = "rgb(50, 50, 50)";
+        sidebar.style.backgroundColor = "rgb(40, 40, 40)";
+        contents.style.backgroundColor = "rgb(30, 30, 30)";
+        snsLinks.style.backgroundColor = "rgb(30, 30, 30)";
+        footer.style.backgroundColor = "rgb(50, 50, 50)";
+
+        // 밤모드에서 텍스트 요소의 색상 변경
+        textElements.forEach(function(element) {
+          element.style.color = "white";
+        });
+      }
+    }
+  </script>
+</head>
+<body onload="updateTimeAndDate()"></body>
+<body>
+  <div id="container">
+    <header id="header">
+        <div id ="logo">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Moirai+One&display=swap" rel="stylesheet">
+            <h1>어서오세요</h1>
+            <script>
+                function displayDateTime() {
+                  var now = new Date();
+                  var dateElement = document.getElementById('date');
+                  var timeElement = document.getElementById('time');
+            
+                  dateElement.innerHTML = now.toLocaleDateString();
+                  timeElement.innerHTML = now.toLocaleTimeString();
+                }
+            
+                // 페이지가 로드될 때 displayDateTime 함수를 실행합니다.
+                window.onload = displayDateTime;
+              </script>
+              <div id="time-Date"></div>날짜: <span id="date"></span>
+              시간: <span id="time"></span>
+            <input id="night_day" type="button" value="night" onclick="nightDayHandler(this);">
+        </div>
+    </header>
+    <aside id="sidebar">
+      <div id = "image">
+         <img src="ow.jpg">
+      </div>
+      <div id ="introduction">
+        <h3><b>소개합니다</b></h3>
+        <ul>
+            <li> <b style="color:rgb(161, 121, 121);">이름 : </b> 조하은</li>
+            <li> <b style="color:rgb(161, 121, 121);">나이 : </b> 20살</li>
+            <li> <b style="color:rgb(161, 121, 121);">전공 : </b>AI의료소프트웨어학과</li>
+            <li> <b style="color:rgb(161, 121, 121);">소개 : </b>안녕하세요! 얼른 종강 하고싶은 조하은입니당.
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        종강하면 .. 여행을 갈 계획입니당.</p>
+
+            </li>
+        </ul>
+      </div>
+      
+    </aside>
+
+    <section id="contents">
+      <h2>조하은의 취향</h2>
+      <div id = "links">
+        <ul>
+            <li><a href="1.html">음식</a></li>
+            <li><a href="2.html">취미</a></li>
+            <li><a href="3.html">드라마</a></li>
+            <li><a href="4.html">음악</a></li>
+        </ul>
+    </div>    
+    </section>
+
+    <section id="snsLinks">
+        <h2>기타 정보</h2>
+        <div id = "snslinks">
+            <ul>
+                <li>
+                    <a href="https://instagram.com/jo_15.47?igshid=NTc4MTIwNjQ2YQ==">
+                        <span id="quick-icon1"></span>
+                        <p>인스타그램</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://youtu.be/E8-dZq8o_So">
+                        <span id="quick-icon2"></span>
+                        <p>요즘 내 상태</p>
+                    </a>
+                </li>
+            </ul>
+        </div>    
+    </section>
+    
+    
+    <footer id="footer">
+        <div id="last">
+        <h1>감사합니다.</h1>
+        </div>
+    <footer>
+  </div>
+</body>
+</html>
